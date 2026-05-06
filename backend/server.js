@@ -4,11 +4,11 @@ const cors = require('cors');
 require('dotenv').config();
 
 // const authRoutes = require('./routes/auth');
-const authRoutes = require('./Routes/authRoutes');
+const authRoutes = require('./routes/authRoutes');
 // const medicineRoutes = require('./routes/medicines');
-const medicineRoutes = require('./Routes/MedicineRoutes');
+const medicineRoutes = require('./routes/MedicineRoutes');
 // const saleRoutes = require('./routes/sales');
-const saleRoutes = require('./Routes/salesRutes');
+const saleRoutes = require('./routes/salesRutes');
 
 const app = express();
 
