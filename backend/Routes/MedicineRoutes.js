@@ -1,11 +1,11 @@
-                                                                
+
 
 const express = require('express');
 const Medicine = require('../Model/Medicine');
 const { protect } = require('../Middlleware/auth');
 const router = express.Router();
 
-// Get all medicines
+// Get all medicines with routes
 router.get('/', protect, async (req, res) => {
   try {
     const medicines = await Medicine.find().sort({ createdAt: -1 });
