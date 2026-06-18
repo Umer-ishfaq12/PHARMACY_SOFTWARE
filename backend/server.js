@@ -12,7 +12,11 @@ const saleRoutes = require('./Routes/salesRoutes');
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://pharmacy-software-sk7y.vercel.app',
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
