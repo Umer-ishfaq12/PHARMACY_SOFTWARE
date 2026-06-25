@@ -4,7 +4,7 @@ const Medicine = require('../Model/Medicine');
 const { protect } = require('../Middlleware/auth');
 const router = express.Router();
 
-// Get all sales
+// Get
 router.get('/', protect, async (req, res) => {
   try {
     const sales = await Sale.find().populate('soldBy', 'name').sort({ createdAt: -1 });

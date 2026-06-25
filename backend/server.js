@@ -10,12 +10,19 @@ const medicineRoutes = require('./Routes/medicineRoutes');
 // const saleRoutes = require('./routes/sales');
 const saleRoutes = require('./Routes/salesRoutes'); 
 const aiRoutes = require('./Routes/aiRoutes');
+// const saleRoutes = require('./routes/sales');
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://pharmacy-software-sk7y.vercel.app',
+  credentials: true
+}));
 app.use(express.json());
-
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/medicines', medicineRoutes);
