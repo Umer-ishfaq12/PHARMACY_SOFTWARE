@@ -1,21 +1,4 @@
-// const mongoose = require('mongoose');
 
-// const saleItemSchema = new mongoose.Schema({
-//   medicine: { type: mongoose.Schema.Types.ObjectId, ref: 'Medicine', required: true },
-//   medicineName: { type: String, required: true },
-//   quantity: { type: Number, required: true },
-//   pricePerUnit: { type: Number, required: true },
-//   total: { type: Number, required: true }
-// });
-
-// const saleSchema = new mongoose.Schema({
-//   items: [saleItemSchema],
-//   totalAmount: { type: Number, required: true },
-//   customerName: { type: String, default: 'Walk-in Customer' },
-//   soldBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-// }, { timestamps: true });
-
-// module.exports = mongoose.model('Sale', saleSchema);
 
 const mongoose = require('mongoose');
 

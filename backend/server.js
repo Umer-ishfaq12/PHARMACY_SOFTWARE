@@ -4,11 +4,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 // const authRoutes = require('./routes/auth');
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./Routes/authRoutes');
 // const medicineRoutes = require('./routes/medicines');
-const medicineRoutes = require('./routes/medicineRoutes');
+const medicineRoutes = require('./Routes/medicineRoutes');
 // const saleRoutes = require('./routes/sales');
-const saleRoutes = require('./routes/salesRoutes');
+const saleRoutes = require('./Routes/salesRoutes'); 
+const aiRoutes = require('./Routes/aiRoutes');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/medicines', medicineRoutes);
 app.use('/api/sales', saleRoutes);
+app.use('/api/ai', aiRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)

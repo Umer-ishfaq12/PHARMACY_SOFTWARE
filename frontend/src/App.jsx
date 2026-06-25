@@ -12,6 +12,8 @@ import Dashboard from './dashboard';
 import Medicines from './Medicine';
 import Sell from './sale';
 import Sales from './saleHistory';
+// Existing imports ke sath yeh add karo
+import AIReorder from './AIReorder';
 
 // Protected route wrapper
 const ProtectedRoute = ({ children }) => {
@@ -51,6 +53,9 @@ function AppRoutes() {
       } />
       <Route path="/sales" element={
         <ProtectedRoute><Sales /></ProtectedRoute>
+      } />
+      <Route path="/ai-reorder" element={
+    <ProtectedRoute><AIReorder /></ProtectedRoute>
       } />
 
       {/* 404 fallback */}
