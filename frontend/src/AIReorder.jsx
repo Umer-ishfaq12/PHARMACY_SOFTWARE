@@ -14,29 +14,62 @@ export default function AIReorder() {
     // ============================================================
     // Fetch medicines and urgent count
     // ============================================================
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             // Fetch all medicines
+    //             const medResponse = await API.get('/medicines');
+    //             setMedicines(medResponse.data.data || []);
+
+    //             // Fetch urgent reorders count
+    //             const urgentResponse = await API.get('/ai/urgent');
+    //             if (urgentResponse.data.success) {
+    //                 setUrgentCount(urgentResponse.data.count);
+    //                 setAllPredictions(urgentResponse.data.data || []);
+    //             }
+    //         } catch (error) {
+    //             console.error('Error fetching data:', error);
+    //             toast.error('Failed to load AI data');
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, []);
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Fetch all medicines
-                const medResponse = await API.get('/medicines');
+    const fetchData = async () => {
+        try {
+            console.log('🔄 Fetching medicines...');
+            const medResponse = await API.get('/medicines');
+            console.log('📦 Medicines Response:', medResponse.data);
+            
+            if (medResponse.data.success) {
                 setMedicines(medResponse.data.data || []);
-
-                // Fetch urgent reorders count
-                const urgentResponse = await API.get('/ai/urgent');
-                if (urgentResponse.data.success) {
-                    setUrgentCount(urgentResponse.data.count);
-                    setAllPredictions(urgentResponse.data.data || []);
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                toast.error('Failed to load AI data');
-            } finally {
-                setLoading(false);
+                console.log('✅ Medicines set:', medResponse.data.data.length);
+            } else {
+                console.log('❌ Medicines response not success:', medResponse.data);
             }
-        };
 
-        fetchData();
-    }, []);
+            console.log('🔄 Fetching urgent reorders...');
+            const urgentResponse = await API.get('/ai/urgent');
+            console.log('🚨 Urgent Response:', urgentResponse.data);
+            
+            if (urgentResponse.data.success) {
+                setUrgentCount(urgentResponse.data.count || 0);
+                setAllPredictions(urgentResponse.data.data || []);
+            }
+        } catch (error) {
+            console.error('❌ Error fetching data:', error);
+            toast.error('Failed to load AI data');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchData();
+}, []);
 
     // ============================================================
     // Loading State
