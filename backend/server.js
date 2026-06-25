@@ -6,7 +6,7 @@ require('dotenv').config();
 // const authRoutes = require('./routes/auth');
 const authRoutes = require('./Routes/authRoutes');
 // const medicineRoutes = require('./routes/medicines');
-const medicineRoutes = require('./Routes/medicineRoutes');
+const medicineRoutes = require('./Routes/MedicineRoutes');
 // const saleRoutes = require('./routes/sales');
 const saleRoutes = require('./Routes/salesroutes'); 
 const aiRoutes = require('./Routes/aiRoutes');
